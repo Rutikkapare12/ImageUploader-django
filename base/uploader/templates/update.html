@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block body %}
+<div class="container-fluid bg-light">
+  <form class="col-6 mx-auto p-3" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Update image</label>
+      <input
+        type="file"
+        name="image"
+        class="form-control"
+        aria-describedby="fileHelp"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">update</button>
+  </form>
+</div>
+
+<div class="container d-flex gap-3 justify-content-center p-3">
+  <div class="card shadow" style="width: 26rem">
+    <img src="/media/{{images.image}}" class="rounded" alt="..." />
+    <div class="card-body">
+      <a href="/delete/{{images.id}}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

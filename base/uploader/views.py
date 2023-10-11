@@ -16,8 +16,31 @@ def uploader(request):
         ImageUpload.objects.create(
             image = image,
         )
-        messages.success(request, "Receipes added succefully!!")
+        messages.success(request, "Image uploaded succefully!!")
         return redirect('/')
 
     context = {'images': queryset}
-    return render(request, "base.html", context)
+    return render(request, "home.html", context)
+
+def update(request, id):
+    queryset = ImageUpload.objects.get(id=id)
+
+    if request.method == 'POST':
+
+        image = request.FILES.get('image')
+
+        if image:
+            queryset.image = image
+
+        queryset.save() 
+        messages.info(request, "Image updated succefully!!")
+        return redirect("/")
+
+    context = {'images': queryset}
+    return render(request, "update.html", context)
+
+def delete(request, id):
+    queryset = ImageUpload.objects.get(id=id) 
+    queryset.delete()
+    messages.warning(request, "Image deleted succefully!!")
+    return redirect('/')

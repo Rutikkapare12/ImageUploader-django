@@ -1,7 +1,9 @@
-<div class="container d-flex gap-3">
+<div class="container d-flex gap-3 flex-wrap justify-content-center">
   {% if images %} {% for img in images %}
-  <div class="card" style="width: 25rem">
-    <img src="/media/{{img.image}}" class="rounded" alt="..." />
-  </div>
+  <a href="/update/{{img.id}}/">
+  <div class="card shadow" style="width: 26rem">
+      <img src="/media/{{img.image}}" class="rounded" alt="..." />
+    </div>
+  </a>
   {% endfor %} {% endif %}
 </div>
