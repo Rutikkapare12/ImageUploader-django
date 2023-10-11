@@ -1,0 +1,7 @@
+<div class="container d-flex gap-3">
+  {% if images %} {% for img in images %}
+  <div class="card" style="width: 25rem">
+    <img src="/media/{{img.image}}" class="rounded" alt="..." />
+  </div>
+  {% endfor %} {% endif %}
+</div>

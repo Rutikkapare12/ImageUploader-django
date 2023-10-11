@@ -1,0 +1,10 @@
+<div class="container-fluid bg-light">
+  <form class="col-6 mx-auto p-3" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Upload image</label>
+      <input type="file" name="image" class="form-control" aria-describedby="fileHelp" />
+    </div>
+    <button type="submit" class="btn btn-primary">upload</button>
+  </form>
+</div>
